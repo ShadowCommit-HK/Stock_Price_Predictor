@@ -1,14 +1,45 @@
-# Stock_Price_Predictor
-The stock market is a dynamic and unpredictable space, where data-driven decisions can significantly improve investment outcomes. To address this challenge, we developed StockOracle, an AI-powered system that leverages machine learning to predict stock trends, forecast future prices, and analyze market sentiment.
+📈 Stock Visualization & Forecasting Dashboard
+This is an interactive Streamlit-based dashboard that enables users to visualize historical stock trends, analyze sentiment from textual data, and forecast future stock prices using machine learning models.
 
-At its core, StockOracle combines Linear Regression for short-term trend prediction and Facebook’s Prophet model for long-term forecasting. The system also integrates sentiment analysis to evaluate market emotions using labeled emojis, providing investors with an intuitive understanding of market mood.
-🔹 Key Features:
-✅ Real-time Stock Trend Prediction using historical data 
-✅ Future Price Forecasting with confidence intervals 
-✅ Interactive Dash-based Dashboard for user-friendly analysis 
-✅ Sentiment Analysis with Emoji Mapping to gauge market sentiment 
-✅ BUY / SELL / HOLD Recommendations based on predictive analytics
+🔧 Features
+📊 Stock Chart Visualization with sentiment markers.
+🤖 Sentiment Analysis from textual data (with emojis).
+📉 Price Forecasting using Prophet or fallback trend-based logic.
+💡 Buy/Hold/Sell Recommendations based on forecasted price changes.
+⏳ Custom Forecast Period selection in Days/Months/Years.
 
-To make this possible, we used Python, Pandas, Scikit-learn, Prophet, and visualization libraries like Dash & Plotly to create an interactive and intuitive experience. We also applied Regular Expressions (Regex) for financial data extraction and processing.
+📁 File Structure
+   .
+├── app.py                     # Streamlit frontend and control logic
+├── data_processor.py         # Data loading, cleaning, and transformation
+├── forecasting.py            # Forecasting model and recommendation logic
+├── visualization.py          # Plotly-based chart rendering
+├── refined_textual_data.csv  # Processed stock sentiment dataset
 
-While the current version provides valuable insights, we see exciting opportunities for improvement. Future enhancements include integrating deep learning models for better accuracy, real-time data streaming for live stock tracking, and advanced NLP techniques to analyze financial news sentiment.
+Prerequisites
+Install the required Python packages:
+  pip install -r requirements.txt
+If requirements.txt is not available, install manually:
+  pip install streamlit pandas numpy plotly prophet
+
+Running the App 
+  streamlit run app.py
+How It Works
+ The app reads stock and sentiment data from refined_textual_data.csv.
+ Users select a stock ticker and forecast period via sidebar controls.
+ Price data is visualized with sentiment emojis (e.g., 😊, 😟).
+ The app uses Prophet (or a fallback model) to forecast future prices.
+ Based on the predicted trend, a recommendation (BUY/HOLD/SELL) is displayed.
+
+Example Insights
+ Forecast: "AAPL stock may increase by 6.3% in the next 3 months."
+ Recommendation: "BUY with 56% confidence"
+ Sentiment: Majority emotion is "confident" 😊
+
+Notes
+ The app handles missing price/sentiment data gracefully using regex extraction and smoothing.
+ When Prophet fails or data is insufficient, the fallback model ensures forecasting continuity.
+ Emotion labels must be precomputed in the CSV (emo_label column).  
+
+Author
+Harsh Kumar Singh — AI & Data Science Enthusiast
